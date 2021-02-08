@@ -33,3 +33,7 @@ function keyBoardEvents(e) {
 
 document.querySelector(".btnGuess").addEventListener("click", guessNumber);
 document.addEventListener("keypress", keyBoardEvents);
+
+console.log(reem);
+console.log(33);
+console.log(yellow);
