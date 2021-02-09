@@ -1,5 +1,8 @@
 let randomNumber = Math.floor(Math.random() * 100 + 1);
-
+let inputVar = document.querySelector(".inputs-Values");
+let guessBtn = document.querySelector("btnGuess")
+let triesVar = document.querySelector(".Tries-output");
+let newBtn = document.querySelector(".btnNewGame");
 function guessNumber() {
   //Collect input from the user
   let guess = document.querySelector(".inputs-Values").value;
@@ -22,7 +25,16 @@ function newGame() {
   //Reset randomNumber
   //Reset users input field
   //Reset tries, and triesTaken by the user
+  
+  // newBtn.addEventListener("click", resetFunc);
+  // function resetFunc(){
+      inputVar = "";
+      triesVar = 7;
+      randomNumber = Math.floor(Math.random() * 100 + 1);
+      // guessBtn = randomNumber;
+  // }
 }
+newGame();
 
 //keyboard exception
 function keyBoardEvents(e) {
@@ -30,6 +42,6 @@ function keyBoardEvents(e) {
     guessNumber();
   }
 }
-
+newBtn.addEventListener("click",newGame);
 document.querySelector(".btnGuess").addEventListener("click", guessNumber);
 document.addEventListener("keypress", keyBoardEvents);
