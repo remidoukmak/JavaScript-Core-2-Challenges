@@ -3,8 +3,13 @@ let inputVar = document.querySelector(".inputs-Values");
 let guessBtn = document.querySelector("btnGuess")
 let triesVar = document.querySelector(".Tries-output");
 let newBtn = document.querySelector(".btnNewGame");
+
+let output = document.querySelector(".final-output");
+console.log(randomNumber);
+
 let triVal = 7;
 triesVar.value = `Number of Tries: ${triVal}`;
+
 
 
 // console.log(randomNumber);
@@ -18,12 +23,14 @@ function guessNumber() {
     //number less than zero Print "Please enter a number between 1 and 100"
     if (guess === 0 || guess === "" || guess > 100 || guess < 0) {
       console.log("please enter number btw 1 and 100");
+          output.value = "please enter number btw 1 and 100";
       triVal--;
       triesVar.value = `Number of Tries: ${triVal}`;
       //If the users guess is higher than the random number print Number is too high, 
       //try again (hint use .final-out class to print)
     } else if (guess > randomNumber) {
       console.log("Number is too high");
+          output.value = "Number is too high";
       // document.write("The number is too high, think smaller");
       // guessed = false;
       triVal--;
@@ -34,6 +41,7 @@ function guessNumber() {
       // document.write("The number is too low, think bigger");
       // guessed = false;
       console.log("Number is too low");
+          output.value = "Number is too low";
       triVal--;
       triesVar.value = `Number of Tries: ${triVal}`;
       //If the user has guessed the random number correctly p rint out the randomNumber with 
@@ -43,10 +51,6 @@ function guessNumber() {
       // guessed = true;
       console.log("You win");
     }
-
-  } else {
-    console.log("game over")
-  }
 }
 
 // For this task we will be making a "New Game" button function which will reset our game,
