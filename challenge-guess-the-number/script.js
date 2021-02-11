@@ -1,9 +1,15 @@
 let randomNumber = Math.floor(Math.random() * 100 + 1);
+let inputVar = document.querySelector(".inputs-Values");
+let guessBtn = document.querySelector("btnGuess")
+let triesVar = document.querySelector(".Tries-output");
+let newBtn = document.querySelector(".btnNewGame");
+let output = document.querySelector(".final-output");
 console.log(randomNumber);
 function guessNumber() {
   //Collect input from the user
   let guess = +document.querySelector(".inputs-Values").value;
 
+  
   //If the user inputs a bad input ie 0, empty string, number greater that 100, number less than zero Print "Please enter a number between 1 and 100"
 
   //If the users guess is higher than the random number print Number is too high, try again (hint use .final-out class to print)
@@ -16,19 +22,19 @@ function guessNumber() {
   // let output;
   let guessed = false;
   if (guess === 0 || guess === "" || guess > 100 || guess < 0) {
-    console.log("please enter number btw 1 and 100");
+    output = "please enter number btw 1 and 100";
   } else if (guess > randomNumber) {
-    console.log("Number is too high");
+    output = "Number is too high";
     // document.write("The number is too high, think smaller");
     // guessed = false;
   } else if (guess < randomNumber) {
     // document.write("The number is too low, think bigger");
     // guessed = false;
-    console.log("Number is too low");
+    output = "Number is too low";
   } else {
     // alert("Guess is correct. You win!");
     // guessed = true;
-    console.log("You win");
+    output = "You win";
   }
 }
 
@@ -41,7 +47,16 @@ function newGame() {
   //Reset randomNumber
   //Reset users input field
   //Reset tries, and triesTaken by the user
+  
+  // newBtn.addEventListener("click", resetFunc);
+  // function resetFunc(){
+      inputVar = "";
+      triesVar = 7;
+      randomNumber = Math.floor(Math.random() * 100 + 1);
+      // guessBtn = randomNumber;
+  // }
 }
+newGame();
 
 //keyboard exception
 function keyBoardEvents(e) {
@@ -49,7 +64,7 @@ function keyBoardEvents(e) {
     guessNumber();
   }
 }
-
+newBtn.addEventListener("click",newGame);
 document.querySelector(".btnGuess").addEventListener("click", guessNumber);
 document.addEventListener("keypress", keyBoardEvents);
 
