@@ -3,6 +3,7 @@ let inputVar = document.querySelector(".inputs-Values");
 let guessBtn = document.querySelector("btnGuess")
 let triesVar = document.querySelector(".Tries-output");
 let newBtn = document.querySelector(".btnNewGame");
+let output = document.querySelector(".final-output");
 console.log(randomNumber);
 function guessNumber() {
   //Collect input from the user
@@ -21,19 +22,19 @@ function guessNumber() {
   // let output;
   let guessed = false;
   if (guess === 0 || guess === "" || guess > 100 || guess < 0) {
-    console.log("please enter number btw 1 and 100");
+    output = "please enter number btw 1 and 100";
   } else if (guess > randomNumber) {
-    console.log("Number is too high");
+    output = "Number is too high";
     // document.write("The number is too high, think smaller");
     // guessed = false;
   } else if (guess < randomNumber) {
     // document.write("The number is too low, think bigger");
     // guessed = false;
-    console.log("Number is too low");
+    output = "Number is too low";
   } else {
     // alert("Guess is correct. You win!");
     // guessed = true;
-    console.log("You win");
+    output = "You win";
   }
 }
 
