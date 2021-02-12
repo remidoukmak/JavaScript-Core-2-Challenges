@@ -73,6 +73,7 @@ function newGame() {
   inputVar.value = "";
   triVal = 7;
   triesVar.value = `Number of Tries: ${triVal}`;
+  output.value = "Please enter number btw 1 and 100"
   randomNumber = randomNumberGenerator();
   document.querySelector(".btnGuess").addEventListener("click", guessNumber);
   document.addEventListener("keypress", keyBoardEvents);
